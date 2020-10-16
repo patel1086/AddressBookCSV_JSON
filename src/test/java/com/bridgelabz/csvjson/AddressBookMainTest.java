@@ -53,4 +53,21 @@ public class AddressBookMainTest {
 		int count = AddressBookMain.readCsv();
 		Assert.assertEquals(2, count);
 	}
+	
+	@Test
+	public void writeInto_JSONFileShouldReturnTotalCountTrue() throws IOException {
+		Address addr1 = new Address("Jitu", "Patel", "Lunawas Khara", "Jodhpur", "Rajasthan", "342014", "9636638082","jitu@gmail.com");
+		Address addr2 = new Address("Ram", "Narayan", "Jhanwar", "Jodhpur", "Rajasthan", "342001", "9571908082","ram@gmail.com");
+		ArrayList<Address> addressBook = new ArrayList<>();
+		addressBook.add(addr1);
+		addressBook.add(addr2);
+		int count = AddressBookMain.writeJson(addressBook);
+		Assert.assertEquals(2, count);
+	}
+	
+	@Test
+	public void readJSONFileShouldReturnTotalCountTrue() throws IOException {
+		int count = AddressBookMain.readJson();
+		Assert.assertEquals(2, count);
+	}
 }
